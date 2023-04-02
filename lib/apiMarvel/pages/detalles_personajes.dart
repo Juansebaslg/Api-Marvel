@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/apiMarvel/controlers/personajes.dart';
+import 'package:marvel/apiMarvel/widgets/menu.dart';
 
-// ignore: camel_case_types
 class detallesPersonajes extends StatelessWidget {
   final Character character;
   // Validación para cuando description sea nulo o esté vacío
@@ -45,6 +45,7 @@ class detallesPersonajes extends StatelessWidget {
   
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Menu(),
       backgroundColor: const Color.fromARGB(255, 6, 2, 255),
       appBar: AppBar(
         title: Text(character.name),

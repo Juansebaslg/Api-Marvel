@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:marvel/main_Api_Marvel.dart';
+import 'package:marvel/apiMarvel/pages/home.dart';
+import 'package:marvel/apiMarvel/pages/personajes_listados.dart';
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // ignore: use_key_in_widget_constructors
-  const MyApp();
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
-      home: mainApiMarvel(),
+      initialRoute: 'home',
+      routes: {
+        'home': (context) => const Home(),
+        'lista_personajes': (context) => listaPersonajes(), 
+      },
     );
   }
 }
+

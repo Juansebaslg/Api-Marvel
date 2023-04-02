@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:marvel/apiMarvel/pages/detalles_personajes.dart';
-import 'package:marvel/apiMarvel/widget/character_title.dart';
+import 'package:marvel/apiMarvel/widgets/menu.dart';
 
 import '../controlers/personajes.dart';
 
@@ -51,7 +51,7 @@ class estadoListaPersonajes extends State<listaPersonajes> {
         '.' +
         character['thumbnail']['extension'];
     final description = character['description'];
-    // Validación para cuando description sea nulo o esté vacío
+    // Validación para cuando la description sea nulo o esté vacío
     const defaultDescription = 'Este personaje no tiene una descripción disponible';
     final validDescription = (description == null || description.isEmpty)
         ? defaultDescription
@@ -81,19 +81,25 @@ class estadoListaPersonajes extends State<listaPersonajes> {
       MaterialPageRoute(
           builder: (context) => detallesPersonajes(
                 character: selectedCharacter,
-              )),
+              )
+              ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      drawer: const Menu(),
+      appBar: AppBar(
+        title: const Text('Personajes de la Api de Marvel'),
+        elevation: 10,
+      ),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Center(
         child: characters.isEmpty
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : ListView.builder(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 itemCount: characters.length,
                 itemBuilder: (context, index) {
                   final character = characters[index];
