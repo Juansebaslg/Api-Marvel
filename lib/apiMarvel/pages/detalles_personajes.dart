@@ -46,7 +46,7 @@ class detallesPersonajes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Menu(),
-      backgroundColor: const Color.fromARGB(255, 6, 2, 255),
+      backgroundColor: Color.fromARGB(255, 108, 107, 158),
       appBar: AppBar(
         title: Text(character.name),
       ),
@@ -70,7 +70,7 @@ class detallesPersonajes extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 244, 67, 54),
+                color: Color.fromARGB(255, 206, 132, 127),
                 border: Border.all(width: 0, color: const Color.fromARGB(0, 0, 0, 0)),
               ),
               child: Text(
@@ -85,7 +85,7 @@ class detallesPersonajes extends StatelessWidget {
             Container(
               height: 17,
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 244, 67, 54),
+                color: Color.fromARGB(255, 206, 132, 127),
                 border: Border.all(width: 0, color: Colors.transparent),
               ),
             ),
@@ -119,7 +119,7 @@ class detallesPersonajes extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 255, 0, 0),
+                color: Color.fromARGB(190, 145, 142, 142),
                 border: Border.all(width: 10, color: Colors.transparent),
               ),
               child: Column(
