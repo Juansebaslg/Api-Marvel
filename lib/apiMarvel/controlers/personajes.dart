@@ -21,4 +21,24 @@ class Character {
     required this.firstThreeSeriesNames,
   });
 
+ factory Character.fromJson(Map<String, dynamic> json) {
+    final seriesNames = json['series']['items']
+        .map((series) => series['name'] as String)
+        .take(3)
+        .toList();
+    return Character(
+      name: json['name'] as String,
+      thumbnail: json['thumbnail']['path'] +
+          '.' +
+          json['thumbnail']['extension'] as String,
+      image: '${json['thumbnail']['path']}.${json['thumbnail']['extension']}'
+          as String,
+      description: json['description'] as String,
+      comicsCount: json['comics']['available'] as int,
+      seriesCount: json['series']['available'] as int,
+      storiesCount: json['stories']['available'] as int,
+      eventsCount: json['events']['available'] as int,
+      firstThreeSeriesNames: seriesNames,
+    );
+  }
 }
